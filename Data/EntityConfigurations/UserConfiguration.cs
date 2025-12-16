@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
 using FitnessTracker.Models;
+
 
 
 public class UserConfiguration : IEntityTypeConfiguration<User>

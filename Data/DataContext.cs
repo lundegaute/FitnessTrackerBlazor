@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.Reflection;
-
 using FitnessTracker.Models;
 
 namespace FitnessTracker.Data;
@@ -12,6 +11,10 @@ public class DataContext : DbContext
 
 
     // Add all DbSet<entity> entities { get; set;}
+    DbSet<Set> Sets { get; set;}
+    DbSet<Exercise> Exercises { get; set;}
+    DbSet<Workout> Workouts { get; set;}
+    
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

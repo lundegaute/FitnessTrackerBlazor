@@ -1,36 +1,52 @@
 
 .grid-container {
+        /* Disaply type */
         display: grid;
+        /* How many collumns in the grid*/
         grid-template-columns: repeat(3, 1fr);
+        /* Gap between items?*/
         gap: 20px;
+        /* Gap/padding between items and the parent or top of the screen?*/
         padding: 20px;
+        /* Width of the items?*/
         max-width: 1200px;
+        /* distance between items and the left of */
         margin: 0 auto;
     }
 
     .card {
-        background-color: #f5f5f5;
-        border: 2px solid #ddd;
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s;
+        display: grid;
+        /* Spread elements evenly inside the cards */
+        grid-template-rows: auto 1fr auto;
+        gap: 1rem;
+        text-align: center;
+        justify-items: center;
+        /* Border */
+        border-radius: 1em;
+        /* Shadow */
+        box-shadow: 2px, 2px, 2px, rgba(0,0,0,0.3);
+        /* Padding: Space between element edge and child elements like text*/
+        padding: 10px;
+
+        background-color: rgba(255, 255, 255, 0.1);
+        
+        
     }
 
     .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        
     }
 
     .card h1 {
-        font-size: 1.5rem;
-        color: #333;
-        margin-bottom: 10px;
+        /* Config h1 text */
+        color: White;
+
     }
 
     .card p {
-        color: #666;
-        line-height: 1.6;
+        /* Config p text */
+        color: white;
+
     }
 
     /* Responsive: stack cards on smaller screens */
@@ -39,4 +55,11 @@
         .grid-container {
             grid-template-columns: 1fr;
         }
+    }
+
+    .CardButton {
+        height: 45px;
+        width: 10rem;
+        border-radius: 0.5rem;
+        
     }

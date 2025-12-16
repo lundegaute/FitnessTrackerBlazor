@@ -6,6 +6,9 @@
 
 main {
     flex: 1;
+    background-color: #16324f; /* Deep ocean blue */
+    min-height: 100vh; /* Ensures full height coverage */
+    color: #ecf0f1;
 }
 
 .sidebar {
@@ -13,8 +16,8 @@ main {
 }
 
 .top-row {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
+    background-color: #16324f; /* Deep ocean blue */
+    border-bottom: 1px solid #1a252f; /* Darker border */
     justify-content: flex-end;
     height: 3.5rem;
     display: flex;
@@ -25,10 +28,12 @@ main {
         white-space: nowrap;
         margin-left: 1.5rem;
         text-decoration: none;
+        color: #ecf0f1; /* Light text for dark background */
     }
 
     .top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
         text-decoration: underline;
+        color: #3498db; /* Nice blue accent on hover */
     }
 
     .top-row ::deep a:first-child {
