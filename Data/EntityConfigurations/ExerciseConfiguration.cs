@@ -12,7 +12,9 @@ public class ExerciseConfiguration : IEntityTypeConfiguration<Exercise>
     public void Configure(EntityTypeBuilder<Exercise> entity)
     {
         entity.HasKey(e => e.Id);
-        entity.Property(e => e.Name).IsRequired();
+        entity.Property(e => e.Name)
+            .HasMaxLength(50)
+            .IsRequired();
         entity.HasIndex(e => e.Name);
         entity.Property(e => e.ExerciseType)
             .HasConversion<string>()
