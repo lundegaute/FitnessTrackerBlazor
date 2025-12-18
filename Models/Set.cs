@@ -5,8 +5,12 @@ namespace FitnessTracker.Models;
 public class Set
 {
     public int Id { get; set; }
+
+    // A set needs to have an exercise
     public required int ExerciseId { get; set; }
     public required Exercise Exercise { get; set; }
+
+    // Set Details
     public required decimal Weight { get; set; }
     public required int Reps { get; set; }
     public required int RPE { get; set; }
