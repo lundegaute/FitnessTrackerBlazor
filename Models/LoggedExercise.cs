@@ -6,14 +6,14 @@ public enum Musclegroup
 {
     Chest,
     Back,
-    Shoulder,
+    Shoulders,
     Biceps,
     Triceps,
     Abs,
     Glutes,
     Quads,
     Hamstring,
-    Calves,
+    Calves
 }
 public enum ExerciseType
 {
@@ -21,11 +21,12 @@ public enum ExerciseType
     Isolation,
 
 }
-public class Exercise
+
+public class LoggedExercise
 {
     public int Id { get; set; }
     public required string Name { get; set; }
-    public required ExerciseType ExerciseType { get; set;}
-    public required Musclegroup Agonist { get; set;}
-
+    public required ExerciseType ExerciseType { get; set;  }
+    public required Musclegroup Agonist { get; set; }
+    public List<Musclegroup>? Synergists { get; set; } = new List<Musclegroup>();
 }
