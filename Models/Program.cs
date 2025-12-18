@@ -6,10 +6,10 @@ public class Program
 {
     public int Id { get; set; }
 
-    // Exercice relation
-
-    // PlannedExercise relation
-    public int PlannedExerciseId { get; set; }
-    public required PlannedExercise PlannedExercise { get; set; }
+    // A program needs to have exercises
+    public required ICollection<PlannedExercise> PlannedExercises { get; set; }
+   
     // Details
+    public string Description { get; set; } = "";
+
 }

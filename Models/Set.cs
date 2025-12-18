@@ -6,9 +6,9 @@ public class Set
 {
     public int Id { get; set; }
 
-    // A set needs to have an exercise
-    public required int ExerciseId { get; set; }
-    public required Exercise Exercise { get; set; }
+    // A set needs to have a LoggedExercise. 
+    public required int LoggedExerciseId { get; set; }
+    public required LoggedExercise LoggedExercise { get; set; }
 
     // Set Details
     public required decimal Weight { get; set; }
