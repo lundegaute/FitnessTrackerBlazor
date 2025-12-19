@@ -1,0 +1,56 @@
+@page "/exercises"
+@using FitnessTracker.Services
+@using FitnessTracker.DTO
+@inject ExerciseService _exerciseService
+@rendermode InteractiveServer
+
+<PageTitle> Exercises </PageTitle>
+
+<div class="ExerciseList"> 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Exercise Type</th>
+                <th>Agonist</th>
+                <th>Synergists</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var exercise in exercises) 
+            {
+                <tr>
+                    <td>@exercise.Id</td>
+                    <td>@exercise.Name</td>
+                    <td>@exercise.ExerciseType</td>
+                    <td>@exercise.Agonist</td>
+                    <td>@string.Join(",", exercise.Synergists)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+
+@code {
+    private List<ExerciseDTO> exercises = new List<ExerciseDTO>();
+
+    protected override async Task OnInitializedAsync() // This method runs when component loads
+    {
+        exercises = await _exerciseService.GetExercises();
+    }
+
+    // Runs when parameters change
+    protected override async Task OnParametersSetAsync() 
+    {
+
+    }
+
+    // Runs after component renders
+    protected override async Task OnAfterRenderAsync(bool firstRender) 
+    {
+
+    }
+}

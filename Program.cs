@@ -1,14 +1,44 @@
 using FitnessTracker.Components;
+using FitnessTracker.Interface;
+using FitnessTracker.Repository;
+using FitnessTracker.Services;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using FitnessTracker.Data;
+using FitnessTracker.Data.Seed;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// MySql Database connection
+var connectionString = builder.Configuration.GetConnectionString("FitnessTrackerDbConnection")
+    ?? throw new InvalidOperationException("Connectionstring not found");
+builder.Services.AddDbContext<DataContext>(options =>
+    options.UseMySql(
+        connectionString,
+        ServerVersion.AutoDetect(connectionString)));
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+
+// Add Services for DI:
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<ExerciseService>();
+
+
 var app = builder.Build();
+
+// Initialize database with basic data for testing
+using(var scope = app.Services.CreateScope())
+{
+    var _context = scope.ServiceProvider.GetRequiredService<DataContext>();
+    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+    _context.Database.Migrate();
+    await ExerciseSeed.InitialExerciseData(_context, logger);
+}
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

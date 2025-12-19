@@ -11,10 +11,12 @@ public class DataContext : DbContext
 
 
     // Add all DbSet<entity> entities { get; set;}
-    DbSet<Set> Sets { get; set; }
-    DbSet<Exercise> Exercises { get; set; }
-    DbSet<Workout> Workouts { get; set; }
-
+    public DbSet<Exercise> Exercises { get; set; }
+    public DbSet<Set> Sets { get; set; }
+    public DbSet<Workout> Workouts { get; set; }
+    
+    //public DbSet<Program> Programs { get; set; }
+    public DbSet<LoggedExercise> LoggedExercises { get; set; } 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -17,7 +17,6 @@ public class LoggedExercise
     // LoggedExercise needs to have sets
     public ICollection<Set>? Sets { get; set;}
 
-
     // LoggedExercise specific data
-    
+        
 }
