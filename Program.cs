@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using FitnessTracker.Data;
 using FitnessTracker.Data.Seed;
+using FitnessTracker.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,8 +24,7 @@ builder.Services.AddRazorComponents()
 
 
 // Add Services for DI:
-builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-builder.Services.AddScoped<ExerciseService>();
+builder.Services.AddMyScopedServices();
 
 
 var app = builder.Build();

@@ -1,5 +1,4 @@
 using FitnessTracker.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace FitnessTracker.Data.Seed;
 
