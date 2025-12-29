@@ -1,0 +1,47 @@
+/* Updated styling for the Exercises.razor page */
+
+.ExerciseList {
+  margin: 20px;
+  padding: 15px;
+  background-color: #121212; /* Darker background */
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.ExerciseList .exercises {
+  width: 100%;
+  border-collapse: collapse;
+  color: #e0e0e0; /* Softer white text */
+  font-size: 16px;
+}
+
+.ExerciseList .exercises th {
+  background-color: #252525; /* Darker header */
+  color: #f0f0f0; /* Bright white text */
+  padding: 12px;
+  text-align: center;
+  border-bottom: 3px solid #444444;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ExerciseList .exercises td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #333333;
+}
+
+.ExerciseList .exercises tr:nth-child(even) {
+  background-color: #1a1a1a; /* Slightly lighter for even rows */
+}
+
+.ExerciseList .exercises tr:nth-child(odd) {
+  background-color: #101010; /* Slightly darker for odd rows */
+}
+
+.ExerciseList .exercises tr:hover {
+  background-color: #292929; /* Highlight on hover */
+  cursor: pointer;
+  transform: scale(1.01);
+  transition: all 0.2s ease-in-out;
+}

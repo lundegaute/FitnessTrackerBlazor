@@ -16,7 +16,7 @@ var connectionString = builder.Configuration.GetConnectionString("FitnessTracker
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseMySql(
         connectionString,
-        ServerVersion.AutoDetect(connectionString)));
+        new MySqlServerVersion(ServerVersion.AutoDetect(connectionString))));
 
 // Add services to the container.
 builder.Services.AddRazorComponents()

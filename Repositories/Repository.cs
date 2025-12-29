@@ -1,4 +1,4 @@
-using FitnessTracker.Interface;
+using FitnessTracker.Interface.IRepository  ;
 using FitnessTracker.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,9 +24,14 @@ public class Repository<T> : IRepository<T> where T : class
         return await dbTable.ToListAsync();
     }
 
-    public Task<T> GetValue()
+    public async Task<T> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        var entity = await _dbSet.FindAsync(id);
+        if (entity == null)
+        {
+            throw new KeyNotFoundException($"Entity with ID {id} not found.");
+        }
+        return entity;
     }
 
     public Task AddAsync(T entity)
@@ -43,4 +48,5 @@ public class Repository<T> : IRepository<T> where T : class
     {
         throw new NotImplementedException();
     }
+
 }

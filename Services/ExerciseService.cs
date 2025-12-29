@@ -1,10 +1,11 @@
 using FitnessTracker.Models;
-using FitnessTracker.Interface;
+using FitnessTracker.Interface.IRepository;
+using FitnessTracker.Interface.IServices;
 using FitnessTracker.DTO;
 
 namespace FitnessTracker.Services;
 
-public class ExerciseService
+public class ExerciseService : IExerciseService
 {
     private readonly IRepository<Exercise> _exerciseRepository;
 
@@ -13,7 +14,8 @@ public class ExerciseService
         _exerciseRepository = exerciseRepository;
     }
 
-    public async Task<List<ExerciseDTO>> GetExercises()
+
+    public async Task<List<ExerciseDTO>> GetAllExercisesAsync()
     {
         var exercises = await _exerciseRepository.GetValuesAsync();
         var exercisesDTO = exercises.Select(e => new ExerciseDTO
@@ -27,6 +29,26 @@ public class ExerciseService
         .ToList();
 
         return exercisesDTO;
+    }
+
+    public Task<ExerciseDTO> GetExerciseByIdAsync(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task AddExerciseAsync(ExerciseDTO exercise)
+    {
+        throw new NotImplementedException();
+    }
+    
+    public Task UpdateExerciseAsync(ExerciseDTO exercise)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task DeleteExerciseAsync(int id)
+    {
+        throw new NotImplementedException();
     }
 
 }

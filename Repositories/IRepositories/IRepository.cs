@@ -1,6 +1,4 @@
-
-
-namespace FitnessTracker.Interface;
+namespace FitnessTracker.Interface.IRepository;
 
 public interface IRepository<T>
 {
@@ -12,7 +10,7 @@ public interface IRepository<T>
         .FirstOrDefaultAsync(w => w.id == id);
     */
     Task<IEnumerable<T>> GetValuesAsync(Func<IQueryable<T>, IQueryable<T>>? func = null);
-    Task<T> GetValue();
+    Task<T> GetByIdAsync(int id);
     Task AddAsync(T entity);
     Task UpdateAsync(T entity);
     Task DeleteAsync(T entity);

@@ -7,7 +7,7 @@
 <PageTitle> Exercises </PageTitle>
 
 <div class="ExerciseList"> 
-    <table class="table">
+    <table class="exercises">
         <thead>
             <tr>
                 <th>Id</th>
@@ -39,7 +39,7 @@
 
     protected override async Task OnInitializedAsync() // This method runs when component loads
     {
-        exercises = await _exerciseService.GetExercises();
+        exercises = await _exerciseService.GetAllExercisesAsync();
     }
 
     // Runs when parameters change
